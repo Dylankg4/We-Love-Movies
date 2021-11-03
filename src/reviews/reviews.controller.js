@@ -15,6 +15,7 @@ async function isValid(req, res, next){
 }
 
 async function update(req,res){
+    console.log(res.locals.review ,req.body.data)
     const review = {...res.locals.review, ...req.body.data}
     await service.update(review)
     const data = await service.getCritic( res.locals.review.review_id )
